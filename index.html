@@ -292,8 +292,7 @@ var pct2=auto.pct;
 var calcDismin=dts*(pct2/100);
 var dism=rTab(calcDismin);
 if(!yaTomada){
-nueva[dc] = 0;
-notaExtra = "Se OMITE dosis de hoy ("+dias[dc]+") ya que el paciente no la ha tomado. ";
+notaExtra = "Se OMITE dosis de hoy ("+dias[dc]+") SOLO POR HOY (los próximos "+dias[dc]+" toma su dosis normal de "+dosis[dc]+" mg). ";
 } else {
 notaExtra = "Paciente YA tomó dosis hoy ("+dias[dc]+"), se mantiene. ";
 }
@@ -316,7 +315,7 @@ var txt="";
 if(estado==="low"||estado==="sub"){
 txt="<strong>📊 Ajuste PERMANENTE:</strong> INR "+inr.toFixed(2)+" → <span class='val'>"+auto.pct+"%</span> de la DTS ("+dts.toFixed(1)+" mg) = "+(dts*auto.pct/100).toFixed(2)+" mg → <strong>"+rTab(dts*auto.pct/100)+" mg</strong> "+descTab(rTab(dts*auto.pct/100))+" a añadir"+(yaTomada?" al día siguiente (por dosis tomada hoy)":" hoy")+".";
 }else{
-txt="<strong>📊 Ajuste:</strong> INR "+inr.toFixed(2)+" → "+(!yaTomada?"OMITIR hoy y ":"")+"<span class='val'>"+auto.pct+"%</span> de la DTS ("+dts.toFixed(1)+" mg) = "+(dts*auto.pct/100).toFixed(2)+" mg → <strong>"+rTab(dts*auto.pct/100)+" mg</strong> "+descTab(rTab(dts*auto.pct/100))+" a restar del día siguiente (o siguiente disponible si es 0mg).";
+txt="<strong>📊 Ajuste:</strong> INR "+inr.toFixed(2)+" → "+(!yaTomada?"OMITIR hoy (solo por hoy) y ":"")+"<span class='val'>"+auto.pct+"%</span> de la DTS ("+dts.toFixed(1)+" mg) = "+(dts*auto.pct/100).toFixed(2)+" mg → <strong>"+rTab(dts*auto.pct/100)+" mg</strong> "+descTab(rTab(dts*auto.pct/100))+" a restar del día siguiente (o siguiente disponible si es 0mg).";
 }
 autoDiv.innerHTML=txt;
 autoDiv.style.display="block";
@@ -344,7 +343,7 @@ if(estado!=="ok"){
 var ac=(estado==="high")?"danger":"warn";
 h+="<div class='"+ac+" info' style='margin:8px 0'>";
 if(estado==="low"||estado==="sub") h+="<strong>Regla:</strong> Aumentar "+auto.rango+" de la DTS. <strong>Usado: "+auto.pct+"%</strong>. "+(yaTomada?"<em>Dosis ya tomada hoy, ajuste pasa al día siguiente.</em>":"<em>Ajuste aplica hoy.</em>");
-else h+="<strong>Regla:</strong> "+(!yaTomada?"Omitir HOY y ":"")+"disminuir "+auto.rango+" de la DTS al día siguiente. <strong>Usado: "+auto.pct+"%</strong>. <em>Si el día siguiente es 0mg, baja al siguiente.</em>";
+else h+="<strong>Regla:</strong> "+(!yaTomada?"Omitir HOY (solo hoy) y ":"")+"disminuir "+auto.rango+" de la DTS al día siguiente. <strong>Usado: "+auto.pct+"%</strong>. <em>Si el día siguiente es 0mg, baja al siguiente.</em>";
 h+="</div>";
 h+="<div class='adj'><h4>📋 Detalle:</h4><p style='font-size:.87rem'>"+ajusteTxt+"</p></div>";
 }
@@ -353,7 +352,7 @@ for(var i=0;i<7;i++){
 var cl="",txt="",info="",temp="";
 if(necesita&&estado==="high"){
 if(!yaTomada && i===dc){
-cl="om";txt="OMITIDA (solo hoy)";temp=" <span class='ti' style='color:#ef4444'>(no tome hoy)</span>";
+cl="om";txt="OMITIDA (solo hoy)";temp=" <span class='ti' style='color:#ef4444'>(no tome hoy, próximos '+dias[i]+' tome '+dosis[i].toFixed(1)+' mg)</span>";
 } else {
 if(nueva[i]!==dosis[i]){
 cl="ch perm";txt=nueva[i].toFixed(1)+" mg";info="<span class='ti'>"+descTab(nueva[i])+"</span>";temp=" <span class='ti' style='color:#7c3aed'>(reducción permanente)</span>";
@@ -376,7 +375,7 @@ var star=(i===dc)?" ★":"";
 h+="<div class='sr'><span class='dn'>"+dias[i]+star+temp+"</span><span><span class='dd "+cl+"'>"+txt+"</span>"+info+"</span></div>";
 }
 h+="<div class='sr' style='margin-top:5px;padding:6px 8px;background:#fef3c7;border-radius:6px;border-top:2px solid #fcd34d'><span class='dn' style='font-weight:700;color:#92400e'>NUEVA DTS (permanente)</span><span class='dd' style='font-size:1.1rem;color:#92400e'>"+nDTSfinal.toFixed(1)+" mg "+descTab(nDTSfinal)+"</span></div>";
-if(necesita) h+="<div style='font-size:.75rem;color:#64748b;margin-top:6px;text-align:center'><em>⚠️ Siga este esquema permanentemente hasta nueva orden médica.</em></div>";
+if(necesita) h+="<div style='font-size:.75rem;color:#64748b;margin-top:6px;text-align:center'><em>⚠️ Siga este esquema permanentemente hasta nueva orden médica. El día de consulta solo se omite HOY.</em></div>";
 h+="</div>";
 h+="<div class='ctrl'><span class='ctrl-icon'>📆</span><span>Control INR y PT en: <strong>"+textoCtrl+"</strong> (aprox. "+fStr+")</span></div>";
 body.innerHTML=h;
@@ -401,7 +400,7 @@ break;
 }
 }
 var strReduccion = diaReduccionIndex !== -1 ? diasN[diaReduccionIndex] : "día siguiente";
-nota+=txtRango+" de rango terapéutico ("+rango+"), "+(yaTomada?"paciente ya tomó dosis hoy, ":"")+"por lo que se indica: "+(!yaTomada?"omitir dosis de "+diasN[dc]+" SOLO POR HOY y ":"")+"reducir permanentemente la dosis de "+strReduccion+" a "+dN[diaReduccionIndex].toFixed(1)+"mg. Nuevo esquema: ("+dNStr+") para un total de "+nDTS.toFixed(1)+" mg DTS (cambio permanente), se indica control en 1 semana con INR y PT (coagucheck de control), se dan recomendaciones y signos de alarma, se le explica al paciente conducta a seguir quien refiere entender y aceptar, niega alergias a medicamentos.";
+nota+=txtRango+" de rango terapéutico ("+rango+"), "+(yaTomada?"paciente ya tomó dosis hoy, ":"")+"por lo que se indica: "+(!yaTomada?"omitir dosis de "+diasN[dc]+" SOLO POR HOY (los próximos "+diasN[dc]+" toma "+dO[dc].toFixed(1)+" mg normal) y ":"")+"reducir permanentemente la dosis de "+strReduccion+" a "+dN[diaReduccionIndex].toFixed(1)+"mg. Nuevo esquema: ("+dNStr+") para un total de "+nDTS.toFixed(1)+" mg DTS (cambio permanente), se indica control en 1 semana con INR y PT (coagucheck de control), se dan recomendaciones y signos de alarma, se le explica al paciente conducta a seguir quien refiere entender y aceptar, niega alergias a medicamentos.";
 }else{
 var diaAumentoIndex = -1;
 for(var i=0;i<7;i++){
