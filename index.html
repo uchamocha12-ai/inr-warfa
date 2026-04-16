@@ -10,37 +10,29 @@ body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:#f8fafc;
 .container{max-width:900px;margin:0 auto}
 header{background:linear-gradient(135deg,#0f766e,#14b8a6);color:#fff;padding:20px 24px;border-radius:16px 16px 0 0;text-align:center}
 header h1{font-size:1.4rem;margin-bottom:4px;font-weight:700}
-header p{font-size:.85rem;opacity:.95}
 .card{background:#fff;border:1px solid #e2e8f0;border-radius:0 0 16px 16px;padding:24px 26px;box-shadow:0 2px 12px rgba(0,0,0,.05)}
-
 .sec{font-size:1.05rem;font-weight:700;color:#0f766e;margin:20px 0 12px;padding-bottom:6px;border-bottom:2px solid #14b8a6;display:flex;align-items:center;gap:7px}
 .sec:first-child{margin-top:0}
-
 .fg{display:flex;flex-direction:column;margin-bottom:12px}
 .fg label{font-size:.82rem;font-weight:600;margin-bottom:4px;color:#334155}
 .fg input,.fg select{padding:9px 11px;border:2px solid #cbd5e1;border-radius:8px;font-size:.95rem;background:#f8fafc;transition:.2s}
 .fg input:focus,.fg select:focus{outline:none;border-color:#14b8a6;background:#fff}
 .row{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
-
 .days{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-top:6px}
 .day{display:flex;flex-direction:column;align-items:center;padding:6px 2px;border-radius:8px;transition:.2s}
 .day.hl{background:#ecfdf5;border:1px solid #a7f3d0}
 .day label{font-size:.72rem;font-weight:700;color:#0f766e;margin-bottom:3px}
 .day input{width:100%;padding:6px 2px;border:2px solid #cbd5e1;border-radius:6px;font-size:.87rem;text-align:center;background:#f8fafc}
 .day input:focus{outline:none;border-color:#14b8a6;background:#fff}
-
 .taken-section{background:#fff7ed;border:1px solid #fed7aa;padding:12px;border-radius:8px;margin:12px 0;display:flex;align-items:center;gap:12px}
 .taken-section input[type=radio]{transform:scale(1.2);accent-color:#ea580c}
 .taken-section label{cursor:pointer;font-weight:600;color:#9a3412}
-
 .info{padding:10px 13px;border-radius:8px;margin:8px 0;font-size:.87rem;line-height:1.5;background:#f0fdfa;border:1px solid #a7f3d0;color:#065f46}
 .warn{background:#fffbeb;border:1px solid #fcd34d;color:#92400e}
 .danger{background:#fef2f2;border:1px solid #fecaca;color:#b91c1c}
-
 .auto{background:#f0f9ff;border:1px solid #bae6fd;border-radius:8px;padding:10px 13px;margin:10px 0;font-size:.87rem}
 .auto strong{color:#0369a1}
 .auto .val{font-weight:700;color:#0284c7}
-
 .btn{padding:13px 26px;border:none;border-radius:9px;font-size:1rem;font-weight:700;cursor:pointer;transition:.2s;text-transform:uppercase;letter-spacing:.4px;width:100%;margin-top:18px}
 .btn-calc{background:linear-gradient(135deg,#0f766e,#14b8a6);color:#fff;font-size:1.03rem}
 .btn-calc:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(14,165,233,.25)}
@@ -48,7 +40,6 @@ header p{font-size:.85rem;opacity:.95}
 .btn-copy:hover{background:#059669}
 .btn-new{background:#64748b;color:#fff;margin-top:7px}
 .btn-new:hover{background:#475569}
-
 #res{display:none;margin-top:20px;border-radius:12px;overflow:hidden;border:2px solid #e2e8f0}
 .rh{padding:13px 16px;color:#fff;font-weight:700;font-size:.98rem;text-align:center}
 .rh.ok{background:#10b981}.rh.warn{background:#f59e0b}.rh.danger{background:#ef4444}
@@ -57,7 +48,6 @@ header p{font-size:.85rem;opacity:.95}
 .interp.ok{background:#ecfdf5;color:#065f46;border:1px solid #a7f3d0}
 .interp.low{background:#fffbeb;color:#92400e;border:1px solid #fcd34d}
 .interp.high{background:#fef2f2;color:#b91c1c;border:1px solid #fecaca}
-
 .adj{margin-top:8px;padding:10px 13px;background:#fffbeb;border-radius:8px;border:1px solid #fcd34d}
 .adj h4{color:#92400e;margin-bottom:5px;font-size:.89rem}
 .sch{background:#f8fafc;border-radius:8px;padding:12px;margin:10px 0}
@@ -72,11 +62,9 @@ header p{font-size:.85rem;opacity:.95}
 .ti{font-size:.72rem;color:#64748b;margin-left:5px;font-weight:400}
 .ctrl{background:#f0f9ff;border-radius:8px;padding:10px 13px;margin-top:10px;display:flex;align-items:center;gap:8px;font-size:.9rem}
 .ctrl-icon{font-size:1.3rem}
-
 .nota-box{display:none;margin-top:20px}
 .nota{margin-top:10px;padding:13px;background:#f8fafc;border-radius:8px;border-left:4px solid #0f766e;font-family:'Courier New',monospace;font-size:.81rem;white-space:pre-wrap;word-wrap:break-word;max-height:360px;overflow-y:auto;line-height:1.5}
 .foot{text-align:center;margin-top:16px;font-size:.72rem;color:#64748b}
-
 @media(max-width:600px){.days{grid-template-columns:repeat(4,1fr)}.row{grid-template-columns:1fr}header h1{font-size:1.15rem}}
 </style>
 </head>
@@ -84,7 +72,7 @@ header p{font-size:.85rem;opacity:.95}
 <div class="container">
 <header>
 <h1>💊 Calculadora de Ajuste de Warfarina</h1>
-<p>Lógica de omisión diferida y cascada de reducción</p>
+<!-- Subtítulo eliminado -->
 </header>
 <div class="card">
 
@@ -114,7 +102,7 @@ header p{font-size:.85rem;opacity:.95}
 
 <div class="sec">💉 Dosis de Warfarina</div>
 <div class="row">
-<div class="fg"><label for="dts">DTS (Dosis Total Semanal) en mg</label><input type="number" id="dts" min="0" max="100" step="0.5" placeholder="Ej: 35"></div>
+<!-- SE ELIMINÓ EL INPUT MANUAL DE DTS -->
 <div class="fg"><label for="diaC">Día de la consulta</label>
 <select id="diaC" onchange="hlDia()">
 <option value="0">Lunes</option><option value="1">Martes</option><option value="2">Miércoles</option>
@@ -208,10 +196,6 @@ var v=parseFloat(document.getElementById(ids[i]).value)||0;
 suma+=v;
 }
 document.getElementById("dtsCalc").textContent=suma.toFixed(1)+" mg";
-var dtsInput=document.getElementById("dts");
-if(!dtsInput.value||parseFloat(dtsInput.value)!==suma){
-dtsInput.value=suma.toFixed(1);
-}
 }
 
 function rTab(val){
@@ -259,8 +243,6 @@ return {pct:pct,rango:rangoTxt,tipo:tipo};
 function buscarDiaNoCero(startIndex, dosisArray){
     var current = startIndex;
     var loopCount = 0;
-    // Buscamos el siguiente día con dosis > 0
-    // Verificamos hasta 7 días para evitar bucle infinito si todo es 0
     while(dosisArray[current] === 0 && loopCount < 7){
         current = (current + 1) % 7;
         loopCount++;
@@ -275,24 +257,26 @@ var motivoTxt=motivo.options[motivo.selectedIndex].text;
 var rango=document.getElementById("rango").value;
 var inr=parseFloat(document.getElementById("inr").value);
 var pt=document.getElementById("pt").value;
-var dts=parseFloat(document.getElementById("dts").value);
 var dc=parseInt(document.getElementById("diaC").value);
 var fecha=document.getElementById("fecha").value;
 
 var yaTomada = document.querySelector('input[name="tomada"]:checked').value === 'si';
+
+// CALCULAR DTS AUTOMÁTICAMENTE
+var dts=0;
+var dosis=[];
+for(var i=0;i<7;i++){
+var v=parseFloat(document.getElementById(ids[i]).value)||0;
+dosis.push(v);
+dts+=v;
+}
 
 var rp=rango.split("-");
 var rMin=parseFloat(rp[0]),rMax=parseFloat(rp[1]);
 
 if(!edad){alert("Ingrese la edad.");return;}
 if(isNaN(inr)||inr<0){alert("Ingrese INR válido.");return;}
-if(isNaN(dts)||dts<=0){alert("Ingrese DTS válida.");return;}
-
-var dosis=[];
-for(var i=0;i<7;i++){
-var v=parseFloat(document.getElementById(ids[i]).value)||0;
-dosis.push(v);
-}
+if(dts<=0){alert("Ingrese al menos una dosis diaria válida.");return;}
 
 var estado="",necesita=false,mensaje="";
 if(inr>=rMin&&inr<=rMax){
@@ -312,21 +296,18 @@ else if(inr>=4.0){estado="high";mensaje="INR "+inr.toFixed(2)+" — SUPRATERAPÉ
 var auto=getPct(inr,rango,estado);
 var autoDiv=document.getElementById("autoInfo");
 
-// Variables para lógica
 var nueva=[dosis[0],dosis[1],dosis[2],dosis[3],dosis[4],dosis[5],dosis[6]];
 var ajusteTxt="";
 var notaExtra="";
 
 if(necesita){
     if(estado==="low"||estado==="sub"){
-        // CASO: AUMENTO
         var pct=auto.pct;
         var calcAjuste=dts*(pct/100);
         var aumento=rTab(calcAjuste);
         
         var diaAumento = yaTomada ? (dc+1)%7 : dc;
         
-        // Si el día de aumento es 0, buscar el siguiente (aunque en aumentos es raro que sea 0)
         if(nueva[diaAumento] === 0) diaAumento = buscarDiaNoCero(diaAumento, nueva);
         
         nueva[diaAumento] = rTab(dosis[diaAumento] + aumento);
@@ -338,25 +319,18 @@ if(necesita){
             ajusteTxt="Se aumenta "+aumento+" mg "+descTab(aumento)+" (calculado: "+calcAjuste.toFixed(2)+" mg) a la dosis de hoy ("+dias[dc]+") de forma PERMANENTE. Dosis "+dias[dc]+": "+dosis[dc]+" mg → "+nueva[dc]+" mg. Nueva DTS: "+nDTS.toFixed(1)+" mg.";
         }
     } else if(estado==="high"){
-        // CASO: DISMINUCIÓN Y OMISIÓN
         var pct2=auto.pct;
         var calcDismin=dts*(pct2/100);
         var dism=rTab(calcDismin);
         
-        // 1. Manejo de Omisión
         if(!yaTomada){
-            // Si no ha tomado, omitimos hoy
             nueva[dc] = 0; 
             notaExtra = "Se OMITE dosis de hoy ("+dias[dc]+") ya que el paciente no la ha tomado. ";
         } else {
-            // Si ya tomó, no omitimos hoy
             notaExtra = "Paciente YA tomó dosis hoy ("+dias[dc]+"), se mantiene. ";
         }
 
-        // 2. Manejo de Reducción % (siempre en el siguiente día disponible)
-        var diaReduccion = (dc + 1) % 7; // Empezamos buscando mañana
-        
-        // LÓGICA DE CASCADA: Si mañana es 0, busca el siguiente que no sea 0
+        var diaReduccion = (dc + 1) % 7;
         var diaOriginalReduccion = diaReduccion;
         if(nueva[diaReduccion] === 0){
              diaReduccion = buscarDiaNoCero(diaReduccion, nueva);
@@ -425,7 +399,6 @@ if(necesita&&estado==="high"){
     if(!yaTomada && i===dc){
         cl="om";txt="OMITIDA (solo hoy)";temp=" <span class='ti' style='color:#ef4444'>(no tome hoy)</span>";
     } else {
-        // Lógica para mostrar cambios permanentes
         if(nueva[i]!==dosis[i]){
              cl="ch perm";txt=nueva[i].toFixed(1)+" mg";info="<span class='ti'>"+descTab(nueva[i])+"</span>";temp=" <span class='ti' style='color:#7c3aed'>(reducción permanente)</span>";
         } else {
@@ -469,7 +442,6 @@ nota+="dentro de rango terapéutico ("+rango+"), por lo que no considero necesar
 }else{
 var txtRango=(estado==="low"||estado==="sub")?"por debajo de":"por encima de";
 if(estado==="high"){
-    // Buscar cuál día se redujo
     var diaReduccionIndex = -1;
     for(var i=0;i<7;i++){
         if(dN[i] < dO[i]){
@@ -520,7 +492,6 @@ document.getElementById("motivo").value="";
 document.getElementById("rango").value="2.0-3.0";
 document.getElementById("inr").value="";
 document.getElementById("pt").value="";
-document.getElementById("dts").value="";
 document.getElementById("diaC").value="0";
 document.getElementById("autoInfo").style.display="none";
 for(var i=0;i<7;i++) document.getElementById(ids[i]).value="";
@@ -532,34 +503,11 @@ document.getElementById("fecha").valueAsDate=hoy;
 var js=hoy.getDay();
 document.getElementById("diaC").value=(js===0)?6:js-1;
 hlDia();
-// Reset tomado
 document.querySelector('input[name="tomada"][value="no"]').checked = true;
 window.scrollTo({top:0,behavior:"smooth"});
 }
 
 document.getElementById("diaC").addEventListener("change",hlDia);
-document.getElementById("dts").addEventListener("input",function(){
-var v=parseFloat(this.value)||0;
-if(v>0){
-var todos=true;
-for(var i=0;i<7;i++){if(document.getElementById(ids[i]).value!==""){todos=false;break;}}
-if(todos){
-var base=v/7;
-var acum=0;
-for(var i=0;i<7;i++){
-if(i<6){
-var d=rTab(base);
-document.getElementById(ids[i]).value=d.toFixed(1);
-acum+=d;
-}else{
-var ult=rTab(v-acum);
-document.getElementById(ids[i]).value=(ult<0)?0:ult.toFixed(1);
-}
-}
-document.getElementById("dtsCalc").textContent=v.toFixed(1)+" mg";
-}
-}
-});
 </script>
 </body>
 </html>
