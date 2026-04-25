@@ -69,7 +69,6 @@ header p{font-size:.9rem;opacity:.95;margin-bottom:8px}
 .nota-box{display:none;margin-top:20px}
 .nota{margin-top:10px;padding:13px;background:#f8fafc;border-radius:8px;border-left:4px solid #0f766e;font-family:'Courier New',monospace;font-size:.81rem;white-space:pre-wrap;word-wrap:break-word;max-height:360px;overflow-y:auto;line-height:1.5}
 .foot{text-align:center;margin-top:16px;font-size:.72rem;color:#64748b;padding-bottom:40px}
-@media(max-width:600px){.days{grid-template-columns:repeat(4,1fr)}.row{grid-template-columns:1fr}header h1{font-size:1.3rem}.watermark{font-size:0.75rem;bottom:15px;right:15px}}
 
 /* 🤖 ESTILOS DEL AGENTE IA */
 #ai-widget-container{position:fixed;bottom:20px;right:20px;z-index:10000;font-family:system-ui,-apple-system,sans-serif}
@@ -88,6 +87,8 @@ header p{font-size:.9rem;opacity:.95;margin-bottom:8px}
 .ai-input-area input{flex:1;padding:8px;border:1px solid #cbd5e1;border-radius:6px;font-size:.85rem}
 .ai-input-area button{margin-left:6px;padding:8px 12px;background:#0f766e;color:#fff;border:none;border-radius:6px;cursor:pointer;font-size:.85rem}
 .ai-input-area button:hover{background:#0d9488}
+
+@media(max-width:600px){.days{grid-template-columns:repeat(4,1fr)}.row{grid-template-columns:1fr}header h1{font-size:1.3rem}.watermark{font-size:0.75rem;bottom:15px;right:15px}}
 </style>
 </head>
 <body>
@@ -179,7 +180,6 @@ header p{font-size:.9rem;opacity:.95;margin-bottom:8px}
 </div>
 
 <script>
-/* === LÓGICA DE LA CALCULADORA (ORIGINAL) === */
 var dias=["Lunes","Martes","Miércoles","Jueves","Viernes","Sábado","Domingo"];
 var diasN=["lunes","martes","miércoles","jueves","viernes","sábado","domingo"];
 var ids=["d0","d1","d2","d3","d4","d5","d6"];
@@ -492,7 +492,7 @@ window.scrollTo({top:0,behavior:"smooth"});
 }
 document.getElementById("diaC").addEventListener("change",hlDia);
 
-/* 🤖 LÓGICA DEL AGENTE IA (SEGURA PARA NETLIFY) */
+/* 🤖 LÓGICA DEL AGENTE IA */
 const AI_API_URL = "/.netlify/functions/chat";
 let aiMessages = [];
 
